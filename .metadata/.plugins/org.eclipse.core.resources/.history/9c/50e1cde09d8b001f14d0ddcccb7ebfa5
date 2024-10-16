@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="002-create-weather-table" author="authorName">
+        <createTable tableName="weather">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="pincode_id" type="BIGINT">
+                <constraints nullable="false" foreignKeyName="fk_pincode_id" references="pincode(id)"/>
+            </column>
+            <column name="temp" type="DECIMAL(5, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="feels_like" type="DECIMAL(5, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="temp_min" type="DECIMAL(5, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="temp_max" type="DECIMAL(5, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="pressure" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="humidity" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="wind_speed" type="DECIMAL(5, 2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="wind_deg" type="INT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="weather_main" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="weather_description" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="timestamp" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>

@@ -1,0 +1,17 @@
+package com.example.demo.model;
+
+
+@Entity
+public class WeatherInfo {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private Double temperature;
+    private Double humidity;
+    private String description;
+    @ManyToOne
+    @JoinColumn(name = "pincode_info_id")
+    private PincodeInfo pincodeInfo; // Foreign key to PincodeInfo
+
+    // Getters and setters
+}

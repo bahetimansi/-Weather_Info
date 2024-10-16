@@ -1,0 +1,26 @@
+package com.example.demo.service;
+
+import java.time.LocalDate;
+
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Service;
+
+import com.example.demo.model.LatLong;
+
+@Service
+public class ExternalApiService {
+
+    public LatLong getLatLongForPincode(String pincode) {
+        // Call Google Maps or OpenWeather Geocoding API
+        String apiUrl = "https://api.openweathermap.org/geo/1.0/zip?zip=" + pincode + ",IN&appid={API_KEY}";
+        ResponseEntity<GeocodeResponse> response = restTemplate.getForEntity(apiUrl, GeocodeResponse.class);
+        return new LatLong(response.getBody().getLat(), response.getBody().getLon());
+    }
+
+    public WeatherApiResponse getWeatherForLatLong(double lat, double lon, LocalDate date) {
+        String weatherApiUrl = "https://api.openweathermap.org/data/2.5/weather?lat=" + lat + "&lon=" + lon + "&appid={API_KEY}";
+        ResponseEntity<WeatherApiResponse> response = restTemplate.getForEntity(weatherApiUrl, WeatherApiResponse.class);
+        return response.getBody();
+    }
+}
+

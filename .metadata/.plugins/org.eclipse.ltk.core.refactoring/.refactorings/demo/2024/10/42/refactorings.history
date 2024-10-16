@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;demo/src/main/resources/db/changelog/db.changelog-1.0.xml&apos; to &apos;changelog-001.xml&apos;" description="Rename resource &apos;db.changelog-1.0.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/db/changelog/db.changelog-1.0.xml" name="changelog-001.xml" stamp="1729069226700" updateReferences="true"/>
+</session>
